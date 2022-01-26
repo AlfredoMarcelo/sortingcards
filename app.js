@@ -1,3 +1,48 @@
+const cardSelection = document.querySelector("#cardSelection");
+const fragment = document.createDocumentFragment();
+const userCard = document.querySelector("#userCard");
+
+let icons = ["&#9829;", "&#9827;", "&#9830;", "&#9824;"];
+let numbers = ["A","2","3","4","5","6","7","8","9","10","J","Q","K",];
+let colors = ["text-danger", "text-dark"];
+
+function captureDate(){
+//scope para agregar el value del input al bucle for  
+  let numberUser = parseInt(document.getElementById("numberUser").value)
+  let a = numberUser
+//for para agregar las cartas  
+  for(let i = 0; i < a; i++){
+
+    let randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
+    console.log(randomNumber)
+    let randomIconCard = icons[Math.floor(Math.random() * icons.length)];
+    console.log(randomIconCard);
+    let randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+    let clone = userCard.content.firstElementChild.cloneNode(true);
+    clone.querySelector("#numberCard").textContent = randomNumber;
+    let iconTop = clone.querySelector("#iconTop")
+    iconTop.innerHTML = randomIconCard;
+    iconTop.classList.add(randomColor);
+    let iconButtom = clone.querySelector("#iconButtom");
+    iconButtom.innerHTML = randomIconCard;
+    iconButtom.classList.add(randomColor);
+    //se agrega el clone a fragment
+    fragment.appendChild(clone)
+  }
+  //agrega el fragmento creado con for a la tag row de html 
+  cardSelection.appendChild(fragment)
+}  
+
+
+
+
+
+
+
+
+
+
 /* for (let i = 0; i < 10; i++) {
   //imprime el for de a 10 veces osea 10 veces 10  hola desde a.
   for (let a = 0; a < 10 - i; a++) {
@@ -8,12 +53,8 @@
  */
 
 
-function captureDate(){
-  let number = parseInt(document.getElementById("numberUser").value)
-  console.log(typeof(number))
-
-}
-/* let cards = ["&#9829;", "&#9827;", "&#9830;", "&#9824;"];
+/* 
+let cards = ["&#9829;", "&#9827;", "&#9830;", "&#9824;"];
 let numbers = ["A","2","3","4","5","6","7","8","9","10","J","Q","K",];
 let colors = ["text-danger", "text-dark"];
  */
