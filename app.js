@@ -6,12 +6,17 @@
   console.log(i + 1 + ". Hola desde i");
 }
  */
-let cards = ["&#9829;", "&#9827;", "&#9830;", "&#9824;"];
+
+
+function captureDate(){
+  let number = parseInt(document.getElementById("numberUser").value)
+  console.log(typeof(number))
+
+}
+/* let cards = ["&#9829;", "&#9827;", "&#9830;", "&#9824;"];
 let numbers = ["A","2","3","4","5","6","7","8","9","10","J","Q","K",];
 let colors = ["text-danger", "text-dark"];
-console.log(cards);
-console.log(numbers);
-console.log(colors);
+ */
 
 /* 
 function displayCards() {
