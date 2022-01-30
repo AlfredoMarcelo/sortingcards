@@ -58,3 +58,33 @@ function sortingCard(){
   }
 
 }
+
+/* const arr = [2,4,6,8]
+
+const nuevoArr = arr.map(i => i +2)
+console.log(nuevoArr)
+
+const nuevoArrDos = arr.filter(i => i <5)
+console.log(nuevoArrDos); */
+
+/* for ( let i  = 0; i < 10; i++){
+  for(let j = 0; j < 10 -i; j++){
+    console.log(j + 1 +". Me gusta el pan")  
+  }
+  console.log(i + 1 +". hola soy un ciclo")
+} */
+let listaNumeros = [3,7,2,9,1,4,6,5,8];
+function burbuja (arr){
+  for(let i = 0; i < arr.length -1; i++){
+    for(let j = 0; j < arr.length -1; j++){
+      if(arr[j] > arr[j+1]){
+        let aux = arr[j]
+        arr[j] = arr[j+1]
+        arr[j + 1]= aux
+      }
+    }
+  }
+  return arr;
+}
+
+console.log(burbuja(listaNumeros));
