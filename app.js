@@ -1,6 +1,6 @@
 const cardSelection = document.querySelector("#cardSelection");
 const fragment = document.createDocumentFragment();
-let userCard = document.querySelector("#userCard");
+const userCard = document.querySelector("#userCard");
 const cardSelectionSorting = document.querySelector("#cardSelectionSorting")
 
 
@@ -8,13 +8,13 @@ const cardSelectionSorting = document.querySelector("#cardSelectionSorting")
 function captureDate(){
 //scope para agregar el value del input al bucle for  
   let numberUser = parseInt(document.getElementById("numberUser").value)
-  let a = numberUser
+  let copyNumberUser = numberUser
 
   let icons = ["&#9829;", "&#9827;", "&#9830;", "&#9824;"];
   let numbers = ["A","2","3","4","5","6","7","8","9","10","J","Q","K",];
   let colors = ["text-danger", "text-dark"];
 //for para agregar las cartas  
-  for(let i = 0; i < a; i++){
+  for(let i = 0; i < copyNumberUser; i++){
 
     let randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
     console.log(randomNumber)
@@ -38,63 +38,23 @@ function captureDate(){
 }  
 
 function sortingCard(){
-  
-}
-
-
-
-
-
-
-/* let numberCard = document.querySelectorAll("p");
-//console.log(numberCard)
-let arrayNumber = [""];
-//console.log(arrayNumber)
-
-for(let i = 0;i < numberCard.length ; i++){
-  //console.log(numberCard[i].innerText)
-  arrayNumber.push(numberCard[i].innerText)
-} */
-
-/* let parrafo = document.createElement("p")
-parrafo.innerHTML = "Hola desde el boton sort";
-let cloneDos = fragment
-console.log(cloneDos) */
-
-
-/* for (let i = 0; i < 10; i++) {
-  //imprime el for de a 10 veces osea 10 veces 10  hola desde a.
-  for (let a = 0; a < 10 - i; a++) {
-    console.log(a + 1 + ". hola desde a"); //imprime 10
+  let numberCard = document.querySelectorAll("p");
+  let iconsCard = document.querySelectorAll("#iconTop")
+  console.log(numberCard)
+  console.log(iconsCard)
+  let arrayNumbers = [];
+  let arrayIcons = [];
+  console.log(arrayNumbers)
+  console.log(arrayIcons)
+ 
+  for(let i = 0;i < numberCard.length ; i++){
+    console.log(numberCard[i].innerText)
+    arrayNumbers.push(numberCard[i].innerText)
   }
-  console.log(i + 1 + ". Hola desde i");
+
+  for(let i = 0;i < iconsCard.length ; i++){
+    console.log(iconsCard[i].innerText)
+    arrayIcons.push(iconsCard[i].innerText)
+  }
+
 }
- */
-
-
-/* 
-let cards = ["&#9829;", "&#9827;", "&#9830;", "&#9824;"];
-let numbers = ["A","2","3","4","5","6","7","8","9","10","J","Q","K",];
-let colors = ["text-danger", "text-dark"];
- */
-
-/* 
-function displayCards() {
-  let singleCard = cards[Math.floor(Math.random() * cards.length)];
-  let singleNumber = numbers[Math.floor(Math.random() * numbers.length)];
-  let changeColor = colors[Math.floor(Math.random() * colors.length)];
-  let showNumber = singleNumber;
-  let showCard = singleCard;
-  let showColor = changeColor;
-  const number = document.getElementById("number");
-  number.innerHTML = showNumber;
-  const iconTop = document.getElementById("iconTop");
-  iconTop.innerHTML = showCard;
-  iconTop.classList.add(showColor);
-  const iconButtom = document.getElementById("iconButtom");
-  iconButtom.classList.add(showColor);
-  iconButtom.innerHTML = showCard;
-}
-displayCards();
-const button = document.querySelector("button");
-button.addEventListener("click", () => displayCards()); */
