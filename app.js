@@ -57,7 +57,40 @@ function sortingCard(){
     arrayIcons.push(iconsCard[i].innerText)
   }
 
+  //let listaNumeros = [3,7,2,9,1,4,6,5,8];
+  function burbuja (arr){
+  for(let i = 0; i < arr.length -1; i++){//if anidados
+    for(let j = 0; j < arr.length -1; j++){
+      if(arr[j] > arr[j+1]){//ejecutara la funcion si el indice 0 es mayor que el 1
+        let aux = arr[j]//se crea variable para guardar el valor del elemento en el indice 0
+        arr[j] = arr[j+1]//el valor del indice 0 desde ahora tendrá el valor del indice 1
+        arr[j + 1]= aux//el valor del indice 1 desde ahora tendrá el valor del indice 0
+        console.log(arr)//imprime cada vuelta del ordenamiento, ver como hacer que se represente en las cartas
+      }
+    }
+  }
 }
+burbuja(arrayNumbers);//se asigna como argumento de la funcion el array de numeros capturados
+console.log(typeof(arrayNumbers))//para comprobar el tipo de valor
+
+}
+
+//--------------------------------------------
+/*
+Queda por solucionar el orden de las letras, cosa de que A sea 1 y las letras j,q,k sean
+10, 11,13 para que al momento de aplicar la funcion burbuja, estos queden en el orden correcto.
+
+
+Queda por solucionar representar el orden en cartas con sus respectivos iconos dentro de la fila bubble log.
+*/
+
+
+
+
+
+
+
+
 
 /* const arr = [2,4,6,8]
 
@@ -73,7 +106,7 @@ console.log(nuevoArrDos); */
   }
   console.log(i + 1 +". hola soy un ciclo")
 } */
-let listaNumeros = [3,7,2,9,1,4,6,5,8];
+/* let listaNumeros = [3,7,2,9,1,4,6,5,8];
 function burbuja (arr){
   for(let i = 0; i < arr.length -1; i++){
     for(let j = 0; j < arr.length -1; j++){
@@ -81,10 +114,9 @@ function burbuja (arr){
         let aux = arr[j]
         arr[j] = arr[j+1]
         arr[j + 1]= aux
+        console.log(arr)
       }
     }
   }
-  return arr;
 }
-
-console.log(burbuja(listaNumeros));
+burbuja(listaNumeros); */
