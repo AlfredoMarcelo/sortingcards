@@ -1,6 +1,9 @@
 const cardSelection = document.querySelector("#cardSelection");
 const fragmentSelection = document.createDocumentFragment();
+const fragmentSorting = document.createDocumentFragment();
 const userCard = document.querySelector("#userCard");
+const userCardSorting = document.querySelector("#userCardSorting");
+console.log(userCard);
 const cardSelectionSorting = document.querySelector("#cardSelectionSorting")
 
 
@@ -42,7 +45,15 @@ function sortingCard(){
   let iconsCard = document.querySelectorAll("#iconTop")
   let arrayNumbers = [];
   let arrayIcons = [];
-  
+
+
+
+
+
+
+
+
+
   for(let i = 0;i < numberCard.length ; i++){
     console.log(numberCard[i].innerText)
     arrayNumbers.push(numberCard[i].innerText)
