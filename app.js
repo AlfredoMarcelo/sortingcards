@@ -1,5 +1,5 @@
 const cardSelection = document.querySelector("#cardSelection");
-const fragment = document.createDocumentFragment();
+const fragmentSelection = document.createDocumentFragment();
 const userCard = document.querySelector("#userCard");
 const cardSelectionSorting = document.querySelector("#cardSelectionSorting")
 
@@ -31,22 +31,18 @@ function captureDate(){
     iconButtom.innerHTML = randomIconCard;
     iconButtom.classList.add(randomColor);
     //se agrega el clone a fragment
-    fragment.appendChild(clone)
+    fragmentSelection.appendChild(clone)
   }
   //agrega el fragmento creado con for a la tag row de html 
-  cardSelection.appendChild(fragment)
+  cardSelection.appendChild(fragmentSelection)
 }  
 
 function sortingCard(){
   let numberCard = document.querySelectorAll("p");
   let iconsCard = document.querySelectorAll("#iconTop")
-  console.log(numberCard)
-  console.log(iconsCard)
   let arrayNumbers = [];
   let arrayIcons = [];
-  console.log(arrayNumbers)
-  console.log(arrayIcons)
- 
+  
   for(let i = 0;i < numberCard.length ; i++){
     console.log(numberCard[i].innerText)
     arrayNumbers.push(numberCard[i].innerText)
