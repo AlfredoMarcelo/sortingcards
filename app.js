@@ -3,27 +3,37 @@ const fragmentSelection = document.createDocumentFragment();
 const fragmentSorting = document.createDocumentFragment();
 const userCard = document.querySelector("#userCard");
 const userCardSorting = document.querySelector("#userCardSorting");
-console.log(userCard);
 const cardSelectionSorting = document.querySelector("#cardSelectionSorting")
 
-
+let datos = []
+console.log(datos)
 
 function captureDate(){
 //scope para agregar el value del input al bucle for  
-  let numberUser = parseInt(document.getElementById("numberUser").value)
+  let numberUser = document.getElementById("numberUser").value
   let copyNumberUser = numberUser
 
   let icons = ["&#9829;", "&#9827;", "&#9830;", "&#9824;"];
-  let numbers = ["A","2","3","4","5","6","7","8","9","10","J","Q","K",];
+  let numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,];
   let colors = ["text-danger", "text-dark"];
+
+  
 //for para agregar las cartas  
   for(let i = 0; i < copyNumberUser; i++){
 
     let randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
-    console.log(randomNumber)
+    /* console.log(randomNumber) */
     let randomIconCard = icons[Math.floor(Math.random() * icons.length)];
-    console.log(randomIconCard);
+    /* console.log(randomIconCard); */
     let randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+    let numero = {numero :randomNumber}
+    let icono = {icono:randomIconCard}
+    let color = {color:randomColor}
+
+    let uni={...numero,...icono,...color}
+    guardar(uni)
+    
 
     let clone = userCard.content.firstElementChild.cloneNode(true);
     clone.querySelector("#numberCard").textContent = randomNumber;
@@ -38,21 +48,29 @@ function captureDate(){
   }
   //agrega el fragmento creado con for a la tag row de html 
   cardSelection.appendChild(fragmentSelection)
+  
 }  
 
+const suma = []
+
+const guardar =(datos)=>{
+  suma.push(datos)
+  
+}
+
+
+
+
+
 function sortingCard(){
-  let numberCard = document.querySelectorAll("p");
+  let copiaSuma = suma
+  console.log(copiaSuma)
+  let newList = copiaSuma.map((item,i)=>item.numero)
+  console.log(newList)
+ /*  let numberCard = document.querySelectorAll("p");
   let iconsCard = document.querySelectorAll("#iconTop")
   let arrayNumbers = [];
   let arrayIcons = [];
-
-
-
-
-
-
-
-
 
   for(let i = 0;i < numberCard.length ; i++){
     console.log(numberCard[i].innerText)
@@ -62,10 +80,10 @@ function sortingCard(){
   for(let i = 0;i < iconsCard.length ; i++){
     console.log(iconsCard[i].innerText)
     arrayIcons.push(iconsCard[i].innerText)
-  }
+  } */
+ burbuja(newList,i) ;//se asigna como argumento de la funcion el array de numeros capturados******funcionando
 
-  //let listaNumeros = [3,7,2,9,1,4,6,5,8];
-  function burbuja (arr){
+  function burbuja (arr,i){
   for(let i = 0; i < arr.length -1; i++){//if anidados
     for(let j = 0; j < arr.length -1; j++){
       if(arr[j] > arr[j+1]){//ejecutara la funcion si el indice 0 es mayor que el 1
@@ -76,10 +94,7 @@ function sortingCard(){
       }
     }
   }
-}
-burbuja(arrayNumbers);//se asigna como argumento de la funcion el array de numeros capturados
-console.log(typeof(arrayNumbers))//para comprobar el tipo de valor
-
+} 
 }
 
 //--------------------------------------------
