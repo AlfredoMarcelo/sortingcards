@@ -5,15 +5,13 @@ const userCard = document.querySelector("#userCard");
 const userCardSorting = document.querySelector("#userCardSorting");
 const cardSelectionSorting = document.querySelector("#cardSelectionSorting")
 
-let datos = []
-console.log(datos)
 
 function captureDate(){
 //scope para agregar el value del input al bucle for  
   let numberUser = document.getElementById("numberUser").value
   let copyNumberUser = numberUser
 
-  let icons = ["&#9829;", "&#9827;", "&#9830;", "&#9824;"];
+  let icons = ["&#9829;", "&#9827;", "&#9830;", "&#9824;"];//24negro ||27 pinta negro 29-30rojo
   let numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,];
   let colors = ["text-danger", "text-dark"];
 
@@ -32,7 +30,7 @@ function captureDate(){
     let color = {color:randomColor}
 
     let uni={...numero,...icono,...color}
-    guardar(uni)
+    saveCard(uni)
     
 
     let clone = userCard.content.firstElementChild.cloneNode(true);
@@ -48,97 +46,40 @@ function captureDate(){
   }
   //agrega el fragmento creado con for a la tag row de html 
   cardSelection.appendChild(fragmentSelection)
-  
 }  
 
-const suma = []
-
-const guardar =(datos)=>{
-  suma.push(datos)
-  
+const dataCard = []
+const saveCard =(datos)=>{
+  dataCard.push(datos)
+  console.log(datos)  
 }
 
-
-
-
-
 function sortingCard(){
-  let copiaSuma = suma
-  console.log(copiaSuma)
-  let newList = copiaSuma.map((item,i)=>item.numero)
+  let newList = dataCard.map((item)=>item)
   console.log(newList)
- /*  let numberCard = document.querySelectorAll("p");
-  let iconsCard = document.querySelectorAll("#iconTop")
-  let arrayNumbers = [];
-  let arrayIcons = [];
-
-  for(let i = 0;i < numberCard.length ; i++){
-    console.log(numberCard[i].innerText)
-    arrayNumbers.push(numberCard[i].innerText)
-  }
-
-  for(let i = 0;i < iconsCard.length ; i++){
-    console.log(iconsCard[i].innerText)
-    arrayIcons.push(iconsCard[i].innerText)
-  } */
- burbuja(newList,i) ;//se asigna como argumento de la funcion el array de numeros capturados******funcionando
-
-  function burbuja (arr,i){
+ burbuja(newList) ;//se asigna como argumento de la funcion el array de numeros capturados******funcionando
+  function burbuja (arr){
   for(let i = 0; i < arr.length -1; i++){//if anidados
     for(let j = 0; j < arr.length -1; j++){
-      if(arr[j] > arr[j+1]){//ejecutara la funcion si el indice 0 es mayor que el 1
+      if(arr[j].numero > arr[j+1].numero){//ejecutara la funcion si el indice 0 es mayor que el 1
         let aux = arr[j]//se crea variable para guardar el valor del elemento en el indice 0
         arr[j] = arr[j+1]//el valor del indice 0 desde ahora tendrá el valor del indice 1
         arr[j + 1]= aux//el valor del indice 1 desde ahora tendrá el valor del indice 0
+        //imprime cada vuelta del ordenamiento, ver como hacer que se represente en las cartas
         console.log(arr)//imprime cada vuelta del ordenamiento, ver como hacer que se represente en las cartas
+        //imprime cada vuelta del ordenamiento, ver como hacer que se represente en las cartas
       }
-    }
-  }
-} 
-}
-
-//--------------------------------------------
-/*
-Queda por solucionar el orden de las letras, cosa de que A sea 1 y las letras j,q,k sean
-10, 11,13 para que al momento de aplicar la funcion burbuja, estos queden en el orden correcto.
-
-
-Queda por solucionar representar el orden en cartas con sus respectivos iconos dentro de la fila bubble log.
-*/
-
-
-
-
-
-
-
-
-
-/* const arr = [2,4,6,8]
-
-const nuevoArr = arr.map(i => i +2)
-console.log(nuevoArr)
-
-const nuevoArrDos = arr.filter(i => i <5)
-console.log(nuevoArrDos); */
-
-/* for ( let i  = 0; i < 10; i++){
-  for(let j = 0; j < 10 -i; j++){
-    console.log(j + 1 +". Me gusta el pan")  
-  }
-  console.log(i + 1 +". hola soy un ciclo")
-} */
-/* let listaNumeros = [3,7,2,9,1,4,6,5,8];
-function burbuja (arr){
-  for(let i = 0; i < arr.length -1; i++){
-    for(let j = 0; j < arr.length -1; j++){
-      if(arr[j] > arr[j+1]){
-        let aux = arr[j]
-        arr[j] = arr[j+1]
-        arr[j + 1]= aux
-        console.log(arr)
-      }
+      arr.map((card)=>{
+        let clone = userCardSorting.content.firstElementChild.cloneNode(true)
+        clone.querySelector("#numberCardSort").textContent = card.numero;
+        fragmentSorting.appendChild(clone)
+        cardSelectionSorting.appendChild(fragmentSorting)
+      })
     }
   }
 }
-burbuja(listaNumeros); */
+}
+
+
+
+/* arr.map((item,i)=>item,i) */
