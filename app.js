@@ -68,8 +68,17 @@ function drawList(item = {}){
 
   contentCard.classList.add("card");
   contentNumber.classList.add("number",item.icon);
-  contentNumber.innerHTML = item.number;
+  contentNumber.innerHTML =letter(item.number) ;
 
   contentCard.appendChild(contentNumber)
   return contentCard;
+}
+const letter =(item)=>{
+  switch(item){
+    case 11:return "J";
+    case 12:return "Q";
+    case 13:return "K";
+    case 1:return "A"
+    default:return item;
+  }
 }
